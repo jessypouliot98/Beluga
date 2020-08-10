@@ -1,0 +1,190 @@
+$black: #000000;
+$success: #4BB543;
+$error: #FF9494;
+$warning: #FFCC00;
+$border-width: 1px;
+
+@mixin placeholder() {
+	*::placeholder, .multi-select .dropdown-heading-value>.gray, .ql-blank {
+		@content;
+	}
+}
+
+@mixin transition() {
+	transition: ease-in 0.3s;
+
+	&:hover {
+		transition-duration: 0.15s;
+		@content;
+	}
+}
+
+.ari-input {
+	color: $black;
+
+	&, * {
+		font-size: 1rem;
+	}
+
+	@include placeholder {
+		color: lighten($black, 70%);
+		font-size: 1rem;
+	}
+
+	&.is-valid .is-field-wrapper {
+		border-color: $success;
+	}
+
+	&.is-invalid .is-field-wrapper {
+		border-color: $error;
+	}
+
+	&.is-required .is-field-wrapper {
+		border-color: $warning;
+	}
+}
+
+.ari-action {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	$size: 2em; width: $size; height: $size;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	& > button {
+		background: none;
+		border: none;
+		outline: none;
+		cursor: pointer;
+	}
+}
+
+.ari-popup {
+	position: absolute;
+	bottom: 100%;
+	right: 0;
+}
+
+.is-field-wrapper {
+	border-bottom: $border-width solid $black;
+	position: relative;
+}
+
+.is-input-container {
+	padding: 0.75em 1em;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	flex-shrink: 0;
+	width: 100%;
+}
+
+.is-input-label {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 0.25em;
+	padding: 0 0.75em;
+}
+
+.is-input-field {
+	outline: none;
+	border: none;
+	padding: 0.75em;
+	width: 100%;
+}
+
+.is-field-textarea {
+	resize: vertical;
+	min-height: 100px;
+	height: 100px;
+	margin-bottom: -4px;
+}
+
+.is-wysiwyg-wrapper {
+	padding-top: 0.75em;
+}
+
+.is-field-wysiwyg {
+
+	&.ql-container {
+		height: auto;
+		border-bottom: none;
+	}
+
+	.ql-editor {
+		resize: vertical;
+		min-height: 200px;
+		height: 200px;
+		padding: 0.75em;
+		margin-bottom: 0;
+	}
+}
+
+.is-field-boolean {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	&, & input[type=checkbox] {
+		cursor: pointer;
+	}
+}
+
+.is-field-checkbox {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	margin: -0.25em -0.75em;
+}
+
+.is-field-radio {
+	@extend .is-field-checkbox;
+}
+
+.is-field-box-item {
+	padding: 0.25em 0.75em;
+
+	&, & input[type=checkbox] {
+		cursor: pointer;
+	}
+}
+
+.is-field-radio-item {
+	@extend .is-field-box-item;
+
+	&, & input[type=radio] {
+		cursor: pointer;
+	}
+}
+
+.is-box-label {
+	margin-right: 0.25em;
+}
+
+.ari-input {
+
+	.multi-select {
+		.dropdown-heading {
+			cursor: inherit;
+		}
+		.dropdown-container{
+			border: none;
+			border-radius: 0;
+			cursor: pointer;
+
+			&:focus-within {
+				box-shadow: none;
+			}
+		}
+	}
+
+	.react-datepicker-wrapper {
+		input {
+			@extend .is-input-field;
+		}
+	}
+
+}
