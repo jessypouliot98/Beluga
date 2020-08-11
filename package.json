@@ -26,6 +26,7 @@
 		"@types/react-dom": "^16.9.8",
 		"@types/react-portal": "^4.0.2",
 		"@types/react-router-dom": "^5.1.5",
+		"axios": "^0.19.2",
 		"css-loader": "^4.2.1",
 		"dom-parser": "^0.1.6",
 		"html-webpack-plugin": "^4.3.0",

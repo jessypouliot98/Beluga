@@ -35,7 +35,8 @@ const config = {
 
 config.devServer = {
 	contentBase: config.output.path,
-	port: 8080
+	port: 8080,
+	historyApiFallback: true
 };
 
 module.exports = config;

@@ -13,7 +13,7 @@ export type BaseInputProps = {
 	required?: boolean,
 	match?: RegExp|RegExp[],
 	options?: option[],
-	onChange?: Function,
+	onChange?: (...args: any) => void,
 }
 
 export type BaseInputState = {
@@ -65,7 +65,7 @@ abstract class BaseInput<P extends BaseInputProps = BaseInputProps, S extends Ba
 	}
 
 	protected onChange = (e: React.ChangeEvent<any>): void => {
-		let callback:any = undefined;
+		let callback: () => void = undefined;
 
 		if (this.props.onChange && typeof this.props.onChange === 'function' ) {
 			callback = () => this.props.onChange(this.state.value)
