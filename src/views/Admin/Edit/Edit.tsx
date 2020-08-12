@@ -1,7 +1,7 @@
 import React from 'react'
-import BaseView from '../BaseView'
+import BaseView from '../../BaseView'
 
-class List extends BaseView {
+class Edit extends BaseView {
 
 	public render() {
 		return (
@@ -13,4 +13,4 @@ class List extends BaseView {
 
 }
 
-export default List
+export default Edit

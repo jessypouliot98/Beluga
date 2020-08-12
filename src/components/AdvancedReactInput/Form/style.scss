@@ -1,0 +1,17 @@
+.ari-form {
+	.is-form-body {
+		margin: -0.75em -1em;
+	}
+
+	.is-form-footer {
+		display: flex;
+		justify-content: flex-end;
+		margin-top: 2em;
+	}
+
+	.is-form-submit {
+		background: lighten(#000000, 30%);
+		color: #ffffff;
+		padding: 0.25em 0.75em;
+	}
+}

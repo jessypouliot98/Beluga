@@ -1,6 +1,5 @@
 import React from 'react'
 import { AppContext } from './providers/AppProvider'
-import { Input } from './components/AdvancedReactInput'
 import MainRouter from './routes/Main/Main'
 import './styles/app.scss'
 

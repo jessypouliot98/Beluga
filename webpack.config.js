@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const tailwindcss = require('tailwindcss');
 
 const config = {
 	entry: './src/index.tsx',
@@ -15,6 +16,13 @@ const config = {
 					'style-loader',
 					'css-loader',
 					'sass-loader',
+					{
+						loader: 'postcss-loader',
+						options: {
+							ident: 'postcss',
+							plugins: [ tailwindcss ],
+						},
+					},
 				],
 			},
 		],
@@ -35,6 +43,7 @@ const config = {
 
 config.devServer = {
 	contentBase: config.output.path,
+	openPage: 'admin',
 	port: 8080,
 	historyApiFallback: true
 };

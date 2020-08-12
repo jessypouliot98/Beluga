@@ -1,7 +1,7 @@
 import React from 'react'
-import BaseView from '../BaseView'
+import BaseView from '../../BaseView'
 
-class Dashboard extends BaseView {
+class List extends BaseView {
 
 	public render() {
 		return (
@@ -13,4 +13,4 @@ class Dashboard extends BaseView {
 
 }
 
-export default Dashboard
+export default List

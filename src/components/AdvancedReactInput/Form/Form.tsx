@@ -1,6 +1,7 @@
 import React from 'react'
 import Input, { IInputProps } from '../Input/Input'
 import axios, { AxiosResponse } from 'axios'
+import './style.scss'
 
 export type enumMethod = 'get' | 'post' | 'put' | 'patch' | 'delete';
 
@@ -98,7 +99,7 @@ class Form extends React.Component<FormProps, FormState> {
 				onSubmit={this.onSubmit}
 			>
 
-				<div>
+				<div className={'is-form-body'}>
 					{ this.props.inputs.map((props, i) => {
 						return (
 							<Input
@@ -110,8 +111,8 @@ class Form extends React.Component<FormProps, FormState> {
 					}) }
 				</div>
 
-				<div>
-					<button>Send</button>
+				<div className={'is-form-footer'}>
+					<button className={'is-form-submit'}>Send</button>
 				</div>
 
 			</form>
