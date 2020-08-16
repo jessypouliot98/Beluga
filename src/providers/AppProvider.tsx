@@ -1,5 +1,6 @@
 import React from 'react'
 import Auth from '../plugins/Auth'
+import axios from 'axios'
 
 const Context = React.createContext({});
 const { Consumer } = Context;
@@ -12,6 +13,7 @@ export type AppProviderState = {
 	plugins: any[],
 	properties: any,
 	loading: boolean,
+	mainMenu: any[],
 }
 
 class AppProvider extends React.Component<AppProviderProps, AppProviderState> {
@@ -19,12 +21,19 @@ class AppProvider extends React.Component<AppProviderProps, AppProviderState> {
 	state = {
 		plugins: [],
 		properties: {},
+		mainMenu: [],
 		loading: true,
 	};
 
 	async componentDidMount(){
 		this.use(Auth);
-		this.setState({ loading: false });
+
+		const resp = await axios.get(`http://localhost:8000/api/admin/v1/mainMenu`);
+
+		this.setState({
+			mainMenu: resp.data,
+			loading: false,
+		});
 	}
 
 	protected use = (plugin: any): void => {
@@ -46,6 +55,7 @@ class AppProvider extends React.Component<AppProviderProps, AppProviderState> {
 		return (
 			<Context.Provider value={{
 				...this.state.properties,
+				mainMenu: this.state.mainMenu,
 			}}>
 				{ !this.state.loading && (
 					this.props.children

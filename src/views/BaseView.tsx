@@ -1,13 +1,10 @@
 import React from 'react'
 import { AppProvider, AppContext } from '../providers/AppProvider'
+import { RouteComponentProps } from 'react-router-dom'
 
-export type BaseViewProps = {
+export type BaseViewProps = RouteComponentProps<any>
 
-}
-
-export type BaseViewState = {
-
-}
+export type BaseViewState = {}
 
 abstract class BaseView<P extends BaseViewProps = BaseViewProps, S extends BaseViewState = BaseViewState> extends React.Component<P, S> {
 

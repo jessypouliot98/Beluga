@@ -43,7 +43,6 @@ const config = {
 
 config.devServer = {
 	contentBase: config.output.path,
-	openPage: 'admin',
 	port: 8080,
 	historyApiFallback: true
 };
