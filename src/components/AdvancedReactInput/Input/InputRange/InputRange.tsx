@@ -5,12 +5,15 @@ class InputRange extends BaseInput {
 
 	public static type = 'range';
 
+	public state = {
+		value: this.props.value || '',
+	}
+
 	public render() {
 		return this.container(
 			<input
-				type={'text'}
+				type={'range'}
 				name={this.props.name}
-				placeholder={this.props.placeholder}
 				value={this.state.value}
 				onChange={this.onChange}
 			/>

@@ -1,19 +1,32 @@
 import React from 'react'
-import BaseInput from '../BaseInput/BaseInput'
+import Input from '../Input'
+import BaseInput, { BaseInputProps, BaseInputState } from '../BaseInput/BaseInput'
 
-class InputGroup extends BaseInput {
+export interface IInputGroupProps extends BaseInputProps {
+	fields: BaseInputProps[],
+}
+
+export interface IInputGroupState extends BaseInputState {
+
+}
+
+class InputGroup extends BaseInput<IInputGroupProps, IInputGroupState> {
 
 	public static type = 'group';
 
+	public state = {
+		value: this.props.value || '',
+	}
+
 	public render() {
 		return this.container(
-			<input
-				type={'text'}
-				name={this.props.name}
-				placeholder={this.props.placeholder}
-				value={this.state.value}
-				onChange={this.onChange}
-			/>
+			<div>
+				{
+					this.props.fields.map((fieldProps, i) => {
+						return <Input key={i} {...fieldProps} />;
+					})
+				}
+			</div>
 		);
 	}
 

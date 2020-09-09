@@ -4,6 +4,10 @@ import BaseInput from '../BaseInput/BaseInput'
 class InputFile extends BaseInput {
 
 	public static type = 'file';
+	
+	public state = {
+		value: this.props.value || '',
+	}
 
 	public render() {
 		return this.container(

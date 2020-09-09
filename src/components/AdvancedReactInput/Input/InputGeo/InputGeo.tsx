@@ -5,6 +5,10 @@ class InputDateTime extends BaseInput {
 
 	public static type = 'geo';
 
+	public state = {
+		value: this.props.value || '',
+	}
+
 	public render() {
 		return this.container(
 			<input
@@ -12,6 +16,7 @@ class InputDateTime extends BaseInput {
 				name={this.props.name}
 				placeholder={this.props.placeholder}
 				value={this.state.value}
+				className={'is-input-field'}
 				onChange={this.onChange}
 			/>
 		);

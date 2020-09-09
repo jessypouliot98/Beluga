@@ -5,6 +5,10 @@ class InputVideo extends BaseInput {
 
 	public static type = 'video';
 
+	public state = {
+		value: this.props.value || '',
+	}
+
 	public render() {
 		return this.container(
 			<input

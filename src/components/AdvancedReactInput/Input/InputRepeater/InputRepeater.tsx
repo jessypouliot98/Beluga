@@ -5,6 +5,10 @@ class InputRepeater extends BaseInput {
 
 	public static type = 'repeater';
 
+	public state = {
+		value: this.props.value || '',
+	}
+
 	public render() {
 		return this.container(
 			<input

@@ -22,7 +22,8 @@ class AppProvider extends React.Component<AppProviderProps, AppProviderState> {
 		plugins: [],
 		properties: {},
 		mainMenu: [],
-		loading: true,
+		// loading: true,
+		loading: false,
 	};
 
 	async componentDidMount(){

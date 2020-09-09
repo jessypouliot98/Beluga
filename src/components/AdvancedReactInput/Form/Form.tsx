@@ -1,5 +1,6 @@
 import React from 'react'
-import Input, { IInputProps } from '../Input/Input'
+import Input from '../Input/Input'
+import { BaseInputProps } from '../Input/BaseInput/BaseInput'
 import axios, { AxiosResponse } from 'axios'
 import './style.scss'
 
@@ -9,7 +10,7 @@ export type FormProps = {
 	className?: string,
 	method?: enumMethod,
 	action: string,
-	inputs: Array<IInputProps>,
+	inputs: Array<BaseInputProps>,
 	callback?: (resp: AxiosResponse | Error) => void,
 }
 

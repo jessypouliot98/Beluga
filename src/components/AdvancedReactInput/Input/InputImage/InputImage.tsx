@@ -5,6 +5,10 @@ class InputImage extends BaseInput {
 
 	public static type = 'image';
 
+	public state = {
+		value: this.props.value || '',
+	}
+
 	public render() {
 		return this.container(
 			<input

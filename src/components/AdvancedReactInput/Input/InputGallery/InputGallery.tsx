@@ -5,6 +5,10 @@ class InputGallery extends BaseInput {
 
 	public static type = 'gallery';
 
+	public state = {
+		value: this.props.value || '',
+	}
+
 	public render() {
 		return this.container(
 			<input

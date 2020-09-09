@@ -27,6 +27,10 @@ class InputDateTime extends BaseInput<IInputDateTimeProps, IInputDateTimeState> 
 		return ['time', 'datetime'].includes(this.props.type);
 	}
 
+	protected get showTimeSelectOnly(): boolean {
+		return this.props.type === 'time';
+	}
+
 	protected get dateFormat(): string {
 		switch (this.props.type) {
 
@@ -55,7 +59,8 @@ class InputDateTime extends BaseInput<IInputDateTimeProps, IInputDateTimeState> 
 			<DatePicker
 				selected={this.state.value}
 				onChange={this.onChange}
-				showTimeSelect={this.showTimeSelect}
+				showTimeInput={this.showTimeSelect}
+				showTimeSelectOnly={this.showTimeSelectOnly}
 				dateFormat={this.dateFormat}
 			/>
 		);

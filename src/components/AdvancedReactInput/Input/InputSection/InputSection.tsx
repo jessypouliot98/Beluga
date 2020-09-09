@@ -5,6 +5,10 @@ class InputSection extends BaseInput {
 
 	public static type = 'section';
 
+	public state = {
+		value: this.props.value || '',
+	}
+
 	public render() {
 		return this.container(
 			<input

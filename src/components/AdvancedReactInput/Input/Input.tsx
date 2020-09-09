@@ -25,17 +25,8 @@ import InputGallery from './InputGallery/InputGallery'
 import InputVideo from './InputVideo/InputVideo'
 import InputMedia from './InputMedia/InputMedia'
 import InputHidden from './InputHidden/InputHidden'
-import { enumInput } from './types'
 
-export interface IInputProps extends BaseInputProps {
-	type: enumInput
-}
-
-export interface IInputState extends BaseInputState {
-
-}
-
-class Input extends React.Component<IInputProps, IInputState> {
+class Input extends React.Component<BaseInputProps, BaseInputState> {
 
 	render(){
 		const { type, ...props } = this.props;
@@ -105,7 +96,7 @@ class Input extends React.Component<IInputProps, IInputState> {
 				return <InputBoolean {...props} />
 
 			case 'group':
-				return <InputGroup {...props} />
+				return <InputGroup {...props as any} />
 
 			case 'repeater':
 				return <InputRepeater {...props} />

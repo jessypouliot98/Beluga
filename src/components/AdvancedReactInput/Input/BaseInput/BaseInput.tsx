@@ -1,8 +1,9 @@
 import React from 'react'
-import { option } from '../types'
+import { enumInput, option } from '../types'
 import './style.scss'
 
 export type BaseInputProps = {
+	type?: enumInput,
 	name?: string,
 	value?: any,
 	label?: string,
@@ -11,6 +12,8 @@ export type BaseInputProps = {
 	style?: React.CSSProperties,
 	width?: string|number,
 	required?: boolean,
+	multiple?: boolean,
+	fields?: BaseInputProps[],
 	match?: RegExp|RegExp[],
 	options?: option[],
 	onChange?: (...args: any) => void,

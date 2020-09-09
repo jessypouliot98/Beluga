@@ -1,6 +1,8 @@
 .ari-form {
 	.is-form-body {
 		margin: -0.75em -1em;
+		display: flex;
+		flex-wrap: wrap;
 	}
 
 	.is-form-footer {

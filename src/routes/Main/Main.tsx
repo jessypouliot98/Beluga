@@ -9,6 +9,8 @@ class Main extends React.Component {
 	public static contextType = AppContext
 
 	public render() {
+		return <Route path={''} component={Admin} />;
+
 		return !this.context.$auth.check() ? (
 			<Switch>
 				<Route path={'/login'} component={Login} />
