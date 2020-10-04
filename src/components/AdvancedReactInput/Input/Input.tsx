@@ -99,7 +99,7 @@ class Input extends React.Component<BaseInputProps, BaseInputState> {
 				return <InputGroup {...props as any} />
 
 			case 'repeater':
-				return <InputRepeater {...props} />
+				return <InputRepeater {...props as any} />
 
 			case 'section':
 				return <InputSection {...props} />

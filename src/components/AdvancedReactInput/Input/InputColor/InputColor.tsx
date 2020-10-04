@@ -36,7 +36,12 @@ class InputColor extends BaseInput {
 					readOnly
 				/>
 			), (
-				<button onClick={this.togglePopup}>btn</button>
+				<button
+					type={'button'}
+					onClick={this.togglePopup}
+				>
+					btn
+				</button>
 			), (
 				<SketchPicker
 					color={this.state.value}

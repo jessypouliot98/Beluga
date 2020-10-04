@@ -13,6 +13,7 @@ class InputRange extends BaseInput {
 		return this.container(
 			<input
 				type={'range'}
+				className={'is-input-field is-field-range'}
 				name={this.props.name}
 				value={this.state.value}
 				onChange={this.onChange}

@@ -57,7 +57,10 @@ class Dashboard extends BaseView {
 							input('text'),
 							input('wysiwyg'),
 						] }),
-						input('repeater'),
+						input('repeater', { width: 100, fields: [
+							input('string', { width: 40 }),
+							input('geo', { width: 60 }),
+						] }),
 						input('section'),
 						input('file'),
 						input('image'),

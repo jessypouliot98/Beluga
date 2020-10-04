@@ -95,13 +95,19 @@ $border-width: 1px;
 	padding: 0.75em;
 	width: 100%;
 	background: none;
+	display: block;
 }
 
 .is-field-textarea {
 	resize: vertical;
 	min-height: 100px;
 	height: 100px;
-	margin-bottom: -4px;
+}
+
+.is-field-range {
+	padding: 0;
+	margin: 0.75em;
+	width: calc(100% - #{0.75em * 2});
 }
 
 .is-wysiwyg-wrapper {

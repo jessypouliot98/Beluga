@@ -20,7 +20,7 @@ class InputGroup extends BaseInput<IInputGroupProps, IInputGroupState> {
 
 	public render() {
 		return this.container(
-			<div>
+			<div className={'flex'}>
 				{
 					this.props.fields.map((fieldProps, i) => {
 						return <Input key={i} {...fieldProps} />;

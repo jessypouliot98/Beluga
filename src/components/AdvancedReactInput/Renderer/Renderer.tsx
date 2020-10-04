@@ -13,17 +13,27 @@ export interface IRendererState {
 
 class Renderer extends React.Component<IRendererProps, IRendererState> {
 
-	getData = (): any => {
-		let data: any;
+	getData = (): string | object => {
+		let data: string | object;
 
-		if( typeof this.props.children === 'string' ){
-			if( isJSON(this.props.children as string) ){
-				data = JSON.parse( this.props.children as string );
-			} else {
+		switch (typeof this.props.children) {
+
+			case 'string':
+				if( isJSON(this.props.children as string) ){
+					data = JSON.parse( this.props.children as string );
+				} else {
+					data = this.props.children;
+				}
+				break;
+
+			case 'number':
+				data = this.props.children.toString();
+				break;
+
+			case 'object':
 				data = this.props.children;
-			}
-		} else if( this.props.children instanceof Object ){
-			data = this.props.children;
+				break;
+
 		}
 
 		return data;

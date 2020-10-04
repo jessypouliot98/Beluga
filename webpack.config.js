@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const tailwindcss = require('tailwindcss');
@@ -28,6 +29,9 @@ const config = {
 		],
 	},
 	plugins: [
+		new webpack.DefinePlugin({
+			'process.env.GOOGLE_MAPS_API_KEY': JSON.stringify(process.env.GOOGLE_MAPS_API_KEY || 'NO_API_KEY'),
+		}),
 		new HtmlWebpackPlugin({
 			template: './src/index.html',
 		}),

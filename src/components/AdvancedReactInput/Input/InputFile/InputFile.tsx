@@ -1,23 +1,56 @@
 import React from 'react'
-import BaseInput from '../BaseInput/BaseInput'
+import BaseInput, { BaseInputProps, BaseInputState } from '../BaseInput/BaseInput'
+import { readFile } from './helpers'
 
-class InputFile extends BaseInput {
+export interface IInputFileState extends BaseInputState {
+	files: File[],
+}
+
+class InputFile extends BaseInput<BaseInputProps, IInputFileState> {
 
 	public static type = 'file';
-	
+
 	public state = {
-		value: this.props.value || '',
+		files: [],
 	}
+
+	protected filterValue = (value: any): any => {
+		return Array.from(value);
+	}
+
+	protected onChange = async (e: React.ChangeEvent<any>): Promise<void> => {
+		let callback: () => void = undefined;
+
+		if (this.props.onChange && typeof this.props.onChange === 'function' ) {
+			callback = () => this.props.onChange(this.state.files)
+		}
+
+		this.setState({ files: this.filterValue(e.target.files) }, callback);
+	};
 
 	public render() {
 		return this.container(
-			<input
-				type={'text'}
-				name={this.props.name}
-				placeholder={this.props.placeholder}
-				value={this.state.value}
-				onChange={this.onChange}
-			/>
+			<label className={'is-input-field'}>
+
+				<div className={'cursor-pointer'}>
+					Select File
+				</div>
+
+				{ this.state.files.length > 0 && (
+					<div>
+						{ this.state.files.map(file => file.name).join(', ') }
+					</div>
+				) }
+
+				<input
+					type={'file'}
+					className={'opacity-0 w-0 h-0 absolute'}
+					name={this.props.name}
+					onChange={this.onChange}
+					multiple={true}
+				/>
+
+			</label>
 		);
 	}
 

@@ -20,6 +20,7 @@ class InputPassword extends BaseInput<BaseInputProps, IInputPasswordState> {
 
 	protected toggleHidden = (e: React.MouseEvent) => {
 		e.preventDefault();
+
 		this.setState(prevState => ({ hidden: !prevState.hidden }));
 	}
 
@@ -35,7 +36,10 @@ class InputPassword extends BaseInput<BaseInputProps, IInputPasswordState> {
 					onChange={this.onChange}
 				/>
 			), (
-				<button onClick={this.toggleHidden}>
+				<button
+					type={'button'}
+					onClick={this.toggleHidden}
+				>
 					{ this.state.hidden ? 'show' : 'hide' }
 				</button>
 			)

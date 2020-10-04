@@ -77,8 +77,15 @@ abstract class BaseInput<P extends BaseInputProps = BaseInputProps, S extends Ba
 		this.setState({ value: this.filterValue(e.target.value) }, callback);
 	};
 
-	protected togglePopup = () => {
+	protected togglePopup = (e) => {
+		e.preventDefault();
 		this.setState(prevState => ({ popupOpen: !prevState.popupOpen }));
+	}
+
+	protected disableOnEnterClick = (e) => {
+		if (e.keyCode === 13) {
+			e.preventDefault();
+		}
 	}
 
 	protected container(input: JSX.Element, action?: JSX.Element, popup?: JSX.Element): JSX.Element {
