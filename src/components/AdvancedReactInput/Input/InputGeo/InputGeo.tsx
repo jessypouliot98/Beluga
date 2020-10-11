@@ -1,7 +1,7 @@
 import React from 'react'
 import BaseInput, { BaseInputProps, BaseInputState } from '../BaseInput/BaseInput'
 
-const GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY;
+const GOOGLE_MAPS_API_KEY = (window as any)?.__ADVANCED_REACT_INPUT__?.env?.GOOGLE_MAPS_API_KEY || '';
 
 export interface IInputGeoProps extends BaseInputProps {
 	lat?: number,

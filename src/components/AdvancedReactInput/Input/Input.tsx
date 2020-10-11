@@ -20,9 +20,7 @@ import InputGroup from './InputGroup/InputGroup'
 import InputRepeater from './InputRepeater/InputRepeater'
 import InputSection from './InputSection/InputSection'
 import InputFile from './InputFile/InputFile'
-import InputImage from './InputImage/InputImage'
 import InputGallery from './InputGallery/InputGallery'
-import InputVideo from './InputVideo/InputVideo'
 import InputMedia from './InputMedia/InputMedia'
 import InputHidden from './InputHidden/InputHidden'
 
@@ -107,14 +105,14 @@ class Input extends React.Component<BaseInputProps, BaseInputState> {
 			case 'file':
 				return <InputFile {...props} />
 
-			case 'image':
-				return <InputImage {...props} />
-
 			case 'gallery':
 				return <InputGallery {...props} />
 
+			case 'image':
+				return <InputMedia {...props} type={'image'} />
+
 			case 'video':
-				return <InputVideo {...props} />
+				return <InputMedia {...props} type={'video'} />
 
 			case 'media':
 				return <InputMedia {...props} />

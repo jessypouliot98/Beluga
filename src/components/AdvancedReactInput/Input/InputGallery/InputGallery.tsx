@@ -1,23 +1,65 @@
 import React from 'react'
-import BaseInput from '../BaseInput/BaseInput'
+import BaseInput, { BaseInputProps, BaseInputState } from '../BaseInput/BaseInput'
+import Thumbnail from '../../Components/Thumbnail/Thumbnail';
+import Modal from 'react-modal'
 
-class InputGallery extends BaseInput {
+Modal.setAppElement('#root');
+
+export interface IInputGalleryProps extends BaseInputProps {}
+
+export interface IInputGalleryState extends BaseInputState {
+	modalOpened: boolean,
+}
+
+class InputGallery extends BaseInput<IInputGalleryProps, IInputGalleryState> {
 
 	public static type = 'gallery';
 
 	public state = {
 		value: this.props.value || '',
+		modalOpened: false,
+	}
+
+	public openModal = (e?: React.MouseEvent) => {
+		if (e) {
+			e.preventDefault();
+		}
+
+		this.setState(prevState => ({ modalOpened: !prevState.modalOpened }));
+	}
+
+	public closeModal = (e?: React.MouseEvent) => {
+		if (e) {
+			e.preventDefault();
+		}
+
+		this.setState(prevState => ({ modalOpened: !prevState.modalOpened }));
 	}
 
 	public render() {
 		return this.container(
-			<input
-				type={'text'}
-				name={this.props.name}
-				placeholder={this.props.placeholder}
-				value={this.state.value}
-				onChange={this.onChange}
-			/>
+			<div className={'flex'}>
+
+				<Thumbnail
+					className={'w-1/3 border'}
+					onClick={this.openModal}
+				>
+					<div>Add</div>
+				</Thumbnail>
+
+				{/*
+					<Modal
+						isOpen={this.state.modalOpened}
+						onRequestClose={this.closeModal}
+					>
+						<Thumbnail
+							className={'w-1/6'}
+							src={'https://jessypouliot.ca/storage/markus-spiske-kdbwmsq9wh0-unsplash-450x450.jpg'}
+						/>
+					</Modal>
+				*/}
+
+			</div>
 		);
 	}
 
